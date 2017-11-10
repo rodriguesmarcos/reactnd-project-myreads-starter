@@ -9,6 +9,7 @@ class AppContainer extends Component {
 
     this.onShowSearchPage = this.onShowSearchPage.bind(this);
     this.getBooks = this.getBooks.bind(this);
+    this.changeShelf = this.changeShelf.bind(this);
   }
 
   state = {
@@ -42,6 +43,27 @@ class AppContainer extends Component {
     this.setState({ showSearchPage: status })
   }
 
+  async changeShelf(updatedBook, shelf) {
+    try {
+      const shelvesResult = await BooksAPI.update(updatedBook, shelf);
+      this.setState(prevState => {
+        const { books:prevBooks } = prevState;
+        const otherBooks = prevBooks.filter(book => updatedBook.id !== book.id);
+        if ( shelf !== 'none' && -1 !== shelvesResult[shelf].indexOf(updatedBook.id) ) {
+          const book = {
+            ...updatedBook,
+            shelf: shelf
+          };
+          return { books: otherBooks.concat([ book ])};
+        }
+        return { books: otherBooks };
+      });
+    } catch (err) {
+      console.error(err);
+      this.setState({ error: "We were unable to update the book's shelf." });
+    }
+  }
+
   render() {
     const { showSearchPage, books } = this.state;
     const shelves = [
@@ -56,6 +78,7 @@ class AppContainer extends Component {
         onShowSearchPage={this.onShowSearchPage}
         shelves={shelves}
         books={books}
+        onChangeShelf={this.changeShelf}
       />
     )
   }

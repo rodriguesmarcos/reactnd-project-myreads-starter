@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Shelf from './Shelf';
 
-const MyBooks = ({onShowSearchPage, shelves, books}) => (
+const MyBooks = ({onShowSearchPage, shelves, books, onChangeShelf}) => (
   <div className="list-books">
     <Header />
     <div className="list-books-content">
@@ -13,6 +13,8 @@ const MyBooks = ({onShowSearchPage, shelves, books}) => (
             key={shelf.id}
             shelf={shelf}
             books={books}
+            shelves={shelves}
+            onChangeShelf={onChangeShelf}
           />
         ))}
       </div>
@@ -27,6 +29,7 @@ MyBooks.propTypes = {
   onShowSearchPage: PropTypes.func.isRequired,
   shelves: PropTypes.arrayOf(PropTypes.object).isRequired,
   books: PropTypes.array.isRequired,
+  onChangeShelf: PropTypes.func.isRequired,
 }
 
 export default MyBooks;
