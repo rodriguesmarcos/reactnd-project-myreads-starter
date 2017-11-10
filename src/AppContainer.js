@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI'
 import App from './App';
 
 class AppContainer extends Component {
@@ -8,6 +8,7 @@ class AppContainer extends Component {
     super();
 
     this.onShowSearchPage = this.onShowSearchPage.bind(this);
+    this.getBooks = this.getBooks.bind(this);
   }
 
   state = {
@@ -18,6 +19,23 @@ class AppContainer extends Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     showSearchPage: false,
+    books: [],
+    error: '',
+  }
+
+
+  componentDidMount() {
+    this.getBooks();
+  }
+
+  async getBooks() {
+    try {
+      const books = await BooksAPI.getAll()
+      this.setState({ books });
+    } catch (err) {
+      console.error(err);
+      this.setState({ error: 'We were unable to retrieve your books.' });
+    }
   }
 
   onShowSearchPage(status) {
@@ -25,7 +43,7 @@ class AppContainer extends Component {
   }
 
   render() {
-    const { showSearchPage } = this.state;
+    const { showSearchPage, books } = this.state;
     const shelves = [
         { id: 'currentlyReading', name: 'Currently Reading' },
         { id: 'wantToRead', name: 'Want to Read' },
@@ -37,6 +55,7 @@ class AppContainer extends Component {
         showSearchPage={showSearchPage}
         onShowSearchPage={this.onShowSearchPage}
         shelves={shelves}
+        books={books}
       />
     )
   }

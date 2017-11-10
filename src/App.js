@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './App.css'
 import MyBooks from './components/MyBooks';
 
-const BooksApp = ({showSearchPage, onShowSearchPage, shelves}) => (
+const BooksApp = ({showSearchPage, onShowSearchPage, shelves, books}) => (
   <div className="app">
     {showSearchPage ? (
       <div className="search-books">
@@ -30,6 +30,7 @@ const BooksApp = ({showSearchPage, onShowSearchPage, shelves}) => (
       <MyBooks
         onShowSearchPage={onShowSearchPage}
         shelves={shelves}
+        books={books}
       />
     )}
   </div>
@@ -39,6 +40,7 @@ BooksApp.propTypes = {
   showSearchPage: PropTypes.bool.isRequired,
   onShowSearchPage: PropTypes.func.isRequired,
   shelves: PropTypes.arrayOf(PropTypes.object).isRequired,
+  books: PropTypes.array.isRequired,
 }
 
 export default BooksApp

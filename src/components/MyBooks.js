@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Shelf from './Shelf';
 
-const MyBooks = ({onShowSearchPage, shelves}) => (
+const MyBooks = ({onShowSearchPage, shelves, books}) => (
   <div className="list-books">
     <Header />
     <div className="list-books-content">
@@ -12,6 +12,7 @@ const MyBooks = ({onShowSearchPage, shelves}) => (
           <Shelf
             key={shelf.id}
             shelf={shelf}
+            books={books}
           />
         ))}
       </div>
@@ -25,6 +26,7 @@ const MyBooks = ({onShowSearchPage, shelves}) => (
 MyBooks.propTypes = {
   onShowSearchPage: PropTypes.func.isRequired,
   shelves: PropTypes.arrayOf(PropTypes.object).isRequired,
+  books: PropTypes.array.isRequired,
 }
 
 export default MyBooks;
