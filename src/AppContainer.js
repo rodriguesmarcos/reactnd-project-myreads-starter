@@ -26,10 +26,17 @@ class AppContainer extends Component {
 
   render() {
     const { showSearchPage } = this.state;
+    const shelves = [
+        { id: 'currentlyReading', name: 'Currently Reading' },
+        { id: 'wantToRead', name: 'Want to Read' },
+        { id: 'read', name: 'Read' },
+    ];
+
     return (
       <App
         showSearchPage={showSearchPage}
         onShowSearchPage={this.onShowSearchPage}
+        shelves={shelves}
       />
     )
   }
