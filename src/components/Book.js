@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
 import BookShelfChanger from './BookShelfChanger';
 
 const Book = ({book, shelves, onChangeShelf}) => (
@@ -13,11 +14,14 @@ const Book = ({book, shelves, onChangeShelf}) => (
         height: 193,
         backgroundImage: `url(${book.imageLinks.smallThumbnail && (book.imageLinks.smallThumbnail)})` }}></div>
       <div className="book-shelf-changer">
-        <BookShelfChanger
-          book={book}
-          shelves={shelves}
-          onChangeShelf={onChangeShelf}
-        />
+        <Route render={(props) => (
+          <BookShelfChanger
+            {...props}
+            book={book}
+            shelves={shelves}
+            onChangeShelf={onChangeShelf}
+          />
+        )}/>
       </div>
     </div>
     <div className="book-title">{book.title}</div>

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const BookShelfChanger = ({book, shelves, onChangeShelf}) => (
+const BookShelfChanger = ({book, shelves, onChangeShelf, history}) => (
   <select
     defaultValue={book.shelf || 'none'}
     onChange={(e) => {
       const shelf = e.target.value;
       onChangeShelf(book, shelf);
+      history.push("/");
     }}
   >
     <option value="none" disabled>Move to...</option>
