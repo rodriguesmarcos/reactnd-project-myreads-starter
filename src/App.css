@@ -192,6 +192,18 @@ body, .app {
   margin: 0 auto;
 }
 
+/* Bookshelf Counter */
+.bookshelf-counter {
+  float: right;
+  font-size: .75em;
+}
+.bookshelf-counter::before {
+  content: "[ ";
+}
+.bookshelf-counter::after {
+  content: " ]";
+}
+
 
 /*
  * Animations
