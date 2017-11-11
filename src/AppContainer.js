@@ -21,6 +21,7 @@ class AppContainer extends Component {
      */
     showSearchPage: false,
     books: [],
+    loading: false,
     error: '',
   }
 
@@ -31,11 +32,13 @@ class AppContainer extends Component {
 
   async getBooks() {
     try {
+      this.setState({ loading: true });
       const books = await BooksAPI.getAll()
-      this.setState({ books });
+      this.setState({ books, loading: false });
     } catch (err) {
       console.error(err);
       this.setState({ error: 'We were unable to retrieve your books.' });
+      this.setState({ loading: false });
     }
   }
 
@@ -65,7 +68,7 @@ class AppContainer extends Component {
   }
 
   render() {
-    const { showSearchPage, books } = this.state;
+    const { showSearchPage, books, loading } = this.state;
     const shelves = [
         { id: 'currentlyReading', name: 'Currently Reading' },
         { id: 'wantToRead', name: 'Want to Read' },
@@ -79,6 +82,7 @@ class AppContainer extends Component {
         shelves={shelves}
         books={books}
         onChangeShelf={this.changeShelf}
+        loading={loading}
       />
     )
   }
