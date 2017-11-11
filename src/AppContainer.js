@@ -8,19 +8,11 @@ class AppContainer extends Component {
   constructor() {
     super();
 
-    this.onShowSearchPage = this.onShowSearchPage.bind(this);
     this.getBooks = this.getBooks.bind(this);
     this.changeShelf = this.changeShelf.bind(this);
   }
 
   state = {
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
-    showSearchPage: false,
     books: [],
     loading: false,
     error: '',
@@ -44,8 +36,6 @@ class AppContainer extends Component {
     }
   }
 
-  onShowSearchPage(status) {
-    this.setState({ showSearchPage: status })
   }
 
   async changeShelf(updatedBook, shelf) {
@@ -70,7 +60,7 @@ class AppContainer extends Component {
   }
 
   render() {
-    const { showSearchPage, books, loading } = this.state;
+    const { books, loading } = this.state;
     const shelves = [
         { id: 'currentlyReading', name: 'Currently Reading' },
         { id: 'wantToRead', name: 'Want to Read' },
@@ -79,8 +69,6 @@ class AppContainer extends Component {
 
     return (
       <App
-        showSearchPage={showSearchPage}
-        onShowSearchPage={this.onShowSearchPage}
         shelves={shelves}
         books={books}
         onChangeShelf={this.changeShelf}

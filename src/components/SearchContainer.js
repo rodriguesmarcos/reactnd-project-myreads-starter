@@ -70,13 +70,12 @@ class SearchContainer extends Component {
   }
 
   render() {
-    const { onShowSearchPage, shelves, onChangeShelf } = this.props;
+    const { shelves, onChangeShelf } = this.props;
     const { query, results, loading, orderBy, currCat, categories  } = this.state;
     const showing = !currCat ? results : results.filter(b => b.categories.includes(currCat));
 
     return (
       <Search
-        onShowSearchPage={onShowSearchPage}
         shelves={shelves}
         results={results.sort(sortBy(orderBy))}
         onChangeShelf={onChangeShelf}
@@ -95,7 +94,6 @@ class SearchContainer extends Component {
 }
 
 SearchContainer.propTypes = {
-  onShowSearchPage: PropTypes.func.isRequired,
   books: PropTypes.array.isRequired,
   shelves: PropTypes.arrayOf(PropTypes.object).isRequired,
   onChangeShelf: PropTypes.func.isRequired,
