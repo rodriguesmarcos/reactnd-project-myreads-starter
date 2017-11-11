@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BooksGrid from './BooksGrid';
 import OrderBy from './OrderBy';
-import CategoriesFilter from './CategoriesFilter';
+import CategoriesFilterContainer from './CategoriesFilterContainer';
 import BookCounter from './BookCounter';
 
 const Shelf = ({shelf, books, shelves, onChangeShelf, loading, orderBy, onOrderBy, categories, onChangeCategory, currCat, showing }) => (
@@ -12,7 +12,7 @@ const Shelf = ({shelf, books, shelves, onChangeShelf, loading, orderBy, onOrderB
 
       { books.length > 0 && (<OrderBy orderBy={orderBy} onOrderBy={onOrderBy} />)}
 
-      { books.length > 0 && (<CategoriesFilter categories={categories} currCat={currCat} onChangeCategory={onChangeCategory} />)}
+      { books.length > 0 && (<CategoriesFilterContainer books={books} currCat={currCat} onChangeCategory={onChangeCategory} />)}
 
       <BooksGrid
         shelf={shelf}

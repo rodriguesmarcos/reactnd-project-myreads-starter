@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import sortBy from 'sort-by';
 import Shelf from './Shelf';
-import { onlyUnique } from '../helpers';
 
 class ShelfContainer extends Component {
 
@@ -10,9 +9,6 @@ class ShelfContainer extends Component {
     super();
 
     this.orderBy = this.orderBy.bind(this);
-    this.generateCategoriesArray = this.generateCategoriesArray.bind(this);
-    this.mapCategories = this.mapCategories.bind(this);
-    this.updateCategories = this.updateCategories.bind(this);
     this.changeCategory = this.changeCategory.bind(this);
     this.updateCurrCatOnMoveLastBook = this.updateCurrCatOnMoveLastBook.bind(this);
   }
@@ -21,22 +17,6 @@ class ShelfContainer extends Component {
     orderBy: 'title',
     currCat: '',
     categories: [],
-  }
-
-  componentDidMount() {
-    const { books } = this.props;
-    if ( books.length > 0 ) {
-      this.updateCategories(books);
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { books:nextBooks } = nextProps;
-    const { books } = this.props;
-
-    if ( JSON.stringify(books) !== JSON.stringify(nextBooks) ) {
-      this.updateCategories(nextBooks);
-    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -49,28 +29,6 @@ class ShelfContainer extends Component {
 
   changeCategory(category) {
     this.setState({ currCat: category });
-  }
-
-  updateCategories(books) {
-    const uniqueCategories = this.generateCategoriesArray(books);
-    const categories = this.mapCategories(uniqueCategories);
-    this.setState({ categories });
-  }
-
-  /**
-  * @description Generate an array of categories from books
-  * @param {Array} prevProps
-  */
-  generateCategoriesArray(books) {
-    const allCategories = books.map( b => b.categories )
-      .reduce( (arr, val) => arr.concat(val), [] );
-    const categories = allCategories.filter(onlyUnique);
-    return categories;
-  }
-
-  mapCategories(categories) {
-    const catObjects = categories.map( c => ( { id: c, name: c } ) );
-    return catObjects;
   }
 
   /**
