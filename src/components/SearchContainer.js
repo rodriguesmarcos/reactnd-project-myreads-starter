@@ -61,12 +61,15 @@ class SearchContainer extends Component {
   }
 
   updateResulsts( results ) {
-    const { books:myBooks } = this.props;
-    const resultsIds = results.map(b => b.id);
-    const myBooksOnResult = myBooks.filter(b => resultsIds.indexOf(b.id));
-    const myBooksOnResultIds = myBooksOnResult.map(b => b.id);
-    const otherBooks = results.filter(b => !myBooksOnResultIds.indexOf(b.id) );
-    return otherBooks.concat(myBooksOnResult);
+    const { books } = this.props;
+    const booksIds = books.map(book => book.id);
+    results.forEach((book, i, arr) => {
+      const position = booksIds.indexOf(book.id);
+      if ( -1 !== position ) {
+        arr[i] = books[position];
+      }
+    });
+    return results;
   }
 
   render() {
