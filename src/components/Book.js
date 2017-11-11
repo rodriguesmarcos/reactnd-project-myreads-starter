@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import BookShelfChanger from './BookShelfChanger';
 
 const Book = ({book, shelves, onChangeShelf}) => (
@@ -8,24 +8,29 @@ const Book = ({book, shelves, onChangeShelf}) => (
 
     <input type="checkbox" name="bookId" value={book.id}/>
 
-    <div className="book-top">
-      <div className="book-cover" style={{
-        width: 128,
-        height: 193,
-        backgroundImage: `url(${book.imageLinks.smallThumbnail && (book.imageLinks.smallThumbnail)})` }}></div>
-      <div className="book-shelf-changer">
-        <Route render={(props) => (
-          <BookShelfChanger
-            {...props}
-            book={book}
-            shelves={shelves}
-            onChangeShelf={onChangeShelf}
-          />
-        )}/>
+    <Link
+      to={`/book/${book.id}`}
+      className="book-link" >
+      <div className="book-top">
+        <div className="book-cover" style={{
+          width: 128,
+          height: 193,
+          backgroundImage: `url(${book.imageLinks.smallThumbnail && (book.imageLinks.smallThumbnail)})` }}></div>
       </div>
+      <div className="book-title">{book.title}</div>
+      <div className="book-authors">{Array.isArray(book.authors) && (book.authors.join(', '))}</div>
+    </Link>
+
+    <div className="book-shelf-changer">
+      <Route render={(props) => (
+        <BookShelfChanger
+          {...props}
+          book={book}
+          shelves={shelves}
+          onChangeShelf={onChangeShelf}
+        />
+      )}/>
     </div>
-    <div className="book-title">{book.title}</div>
-    <div className="book-authors">{Array.isArray(book.authors) && (book.authors.join(', '))}</div>
   </div>
 );
 

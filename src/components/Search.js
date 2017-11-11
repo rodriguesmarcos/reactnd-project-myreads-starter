@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { DebounceInput } from 'react-debounce-input';
 import BooksGrid from './BooksGrid';
 import OrderBy from './OrderBy';
@@ -12,11 +11,6 @@ const Search = ({results, shelves, onChangeShelf, loading, orderBy, onOrderBy, c
   <div>
     <div className="search-books">
       <div className="search-books-bar">
-        <Link
-          className="close-search"
-          to="/">
-          Close</Link>
-
         <div className="search-books-input-wrapper">
           <DebounceInput
             minLength={2}

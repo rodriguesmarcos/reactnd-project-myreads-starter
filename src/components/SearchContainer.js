@@ -15,6 +15,7 @@ class SearchContainer extends Component {
     this.searchBooks = this.searchBooks.bind(this);
     this.orderBy = this.orderBy.bind(this);
     this.changeCategory = this.changeCategory.bind(this);
+    this.mergeResults = this.mergeResults.bind(this);
   }
 
   state = {
@@ -46,21 +47,24 @@ class SearchContainer extends Component {
         this.setState({ loading: true });
         const booksResults = await BooksAPI.search(query.trim());
         const categorizedBooks = addCategoryToUncategorized(booksResults);
-        const results = this.updateResulsts(categorizedBooks);
-        this.setState({ results, loading: false });
+        const results = this.mergeResults(categorizedBooks);
+        this.updateResults(results, false);
       } catch (e) {
-        this.setState({
-          results: [],
-          loading: false
-        });
+        this.updateResults();
       }
     }
     else {
-      this.setState({ results: [], loading: false });
+      this.updateResults();
     }
   }
 
-  updateResulsts( results ) {
+  updateResults(results = [], loading = false) {
+    const { updateTempViewableBooks } = this.props;
+    updateTempViewableBooks(results);
+    this.setState({ results, loading });
+  }
+
+  mergeResults( results ) {
     const { books } = this.props;
     const booksIds = books.map(book => book.id);
     results.forEach((book, i, arr) => {
@@ -106,6 +110,7 @@ SearchContainer.propTypes = {
   shelves: PropTypes.arrayOf(PropTypes.object).isRequired,
   onChangeShelf: PropTypes.func.isRequired,
   onBulkMove: PropTypes.func.isRequired,
+  updateTempViewableBooks: PropTypes.func.isRequired,
 }
 
 export default SearchContainer;

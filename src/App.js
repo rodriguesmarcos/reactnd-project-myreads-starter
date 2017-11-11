@@ -5,10 +5,11 @@ import './App.css'
 import Header from './components/Header';
 import MyBooks from './components/MyBooks';
 import SearchContainer from './components/SearchContainer';
+import BookDetails from './components/BookDetails';
 
-const BooksApp = ({shelves, books, onChangeShelf, loading, onBulkMove}) => (
+const BooksApp = ({shelves, books, onChangeShelf, loading, onBulkMove, getViewableBook, updateTempViewableBooks}) => (
   <div className="app">
-    <Header />
+    <Route component={Header}/>
 
     <Route path="/search" render={() => (
       <SearchContainer
@@ -16,6 +17,7 @@ const BooksApp = ({shelves, books, onChangeShelf, loading, onBulkMove}) => (
         books={books}
         onChangeShelf={onChangeShelf}
         onBulkMove={onBulkMove}
+        updateTempViewableBooks={updateTempViewableBooks}
       />
     )}/>
 
@@ -26,6 +28,15 @@ const BooksApp = ({shelves, books, onChangeShelf, loading, onBulkMove}) => (
         onChangeShelf={onChangeShelf}
         loading={loading}
         onBulkMove={onBulkMove}
+      />
+    )}/>
+
+    <Route exact path="/book/:bookId" render={(props) => (
+      <BookDetails
+        {...props}
+        getViewableBook={getViewableBook}
+        shelves={shelves}
+        onChangeShelf={onChangeShelf}
       />
     )}/>
 

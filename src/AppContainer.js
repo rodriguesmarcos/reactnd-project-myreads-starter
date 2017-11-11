@@ -11,12 +11,16 @@ class AppContainer extends Component {
     this.getBooks = this.getBooks.bind(this);
     this.changeShelf = this.changeShelf.bind(this);
     this.bulkMove = this.bulkMove.bind(this);
+    this.updateTempViewableBooks = this.updateTempViewableBooks.bind(this);
+    this.getViewableBooks = this.getViewableBooks.bind(this);
+    this.getViewableBook = this.getViewableBook.bind(this);
   }
 
   state = {
     books: [],
     loading: false,
     error: '',
+    tempViewableBooks: [],
   }
 
 
@@ -62,6 +66,24 @@ class AppContainer extends Component {
     }
   }
 
+  updateTempViewableBooks(results) {
+    const { books } = this.state;
+    const booksIds = books.map( b => b.id );
+    const singularBooks = results.filter( b => !booksIds.includes(b.id) );
+    this.setState({ tempViewableBooks: singularBooks });
+  }
+
+  getViewableBooks() {
+    const { books, tempViewableBooks } = this.state;
+    return books.concat(tempViewableBooks);
+  }
+
+  getViewableBook( id ) {
+    const books = this.getViewableBooks();
+    const book = books.filter( b => id === b.id );
+    return 1 === book.length ? book[0] : {};
+  }
+
   render() {
     const { books, loading } = this.state;
     const shelves = [
@@ -77,6 +99,8 @@ class AppContainer extends Component {
         onChangeShelf={this.changeShelf}
         loading={loading}
         onBulkMove={this.bulkMove}
+        getViewableBook={this.getViewableBook}
+        updateTempViewableBooks={this.updateTempViewableBooks}
       />
     )
   }
