@@ -10,6 +10,7 @@ class AppContainer extends Component {
 
     this.getBooks = this.getBooks.bind(this);
     this.changeShelf = this.changeShelf.bind(this);
+    this.bulkMove = this.bulkMove.bind(this);
   }
 
   state = {
@@ -36,6 +37,8 @@ class AppContainer extends Component {
     }
   }
 
+  bulkMove(books, shelf) {
+    books.forEach( b => this.changeShelf( b, shelf ) );
   }
 
   async changeShelf(updatedBook, shelf) {
@@ -73,6 +76,7 @@ class AppContainer extends Component {
         books={books}
         onChangeShelf={this.changeShelf}
         loading={loading}
+        onBulkMove={this.bulkMove}
       />
     )
   }

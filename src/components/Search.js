@@ -7,8 +7,9 @@ import BooksGrid from './BooksGrid';
 import OrderBy from './OrderBy';
 import CategoriesFilterContainer from './CategoriesFilterContainer';
 import BookCounter from './BookCounter';
+import BulkMove from './BulkMove';
 
-const Search = ({results, shelves, onChangeShelf, loading, orderBy, onOrderBy, categories, currCat, onChangeCategory, showing, onChangeQuery, query}) => (
+const Search = ({results, shelves, onChangeShelf, loading, orderBy, onOrderBy, categories, currCat, onChangeCategory, showing, onChangeQuery, query, onBulkMove, books }) => (
   <div>
     <Header />
     <div className="search-books">
@@ -39,12 +40,19 @@ const Search = ({results, shelves, onChangeShelf, loading, orderBy, onOrderBy, c
 
         { results.length > 0 && (<CategoriesFilterContainer books={results} currCat={currCat} onChangeCategory={onChangeCategory} />)}
 
-        <BooksGrid
-          books={showing}
+        <BulkMove
           shelves={shelves}
-          onChangeShelf={onChangeShelf}
-          loading={loading}
-        />
+          onBulkMove={onBulkMove}
+          books={books}
+          showing={showing}
+        >
+          <BooksGrid
+            books={showing}
+            shelves={shelves}
+            onChangeShelf={onChangeShelf}
+            loading={loading}
+          />
+        </BulkMove>
       </div>
     </div>
   </div>
@@ -63,6 +71,8 @@ Search.propTypes = {
   showing: PropTypes.array.isRequired,
   onChangeQuery: PropTypes.func.isRequired,
   query: PropTypes.string.isRequired,
+  onBulkMove: PropTypes.func.isRequired,
+  books: PropTypes.array.isRequired,
 }
 
 export default Search;

@@ -51,7 +51,7 @@ class ShelfContainer extends Component {
   }
 
   render() {
-    const { shelf, books, shelves, onChangeShelf, loading } = this.props;
+    const { shelf, books, shelves, onChangeShelf, loading, onBulkMove } = this.props;
     const { orderBy, categories, currCat } = this.state;
 
     const shelfBooks = books.sort(sortBy(orderBy));
@@ -70,6 +70,7 @@ class ShelfContainer extends Component {
         onChangeCategory={this.changeCategory}
         currCat={currCat}
         showing={showing}
+        onBulkMove={onBulkMove}
       />
     )
   }
@@ -81,6 +82,7 @@ ShelfContainer.propTypes = {
   shelves: PropTypes.arrayOf(PropTypes.object).isRequired,
   onChangeShelf: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  onBulkMove: PropTypes.func.isRequired,
 }
 
 export default ShelfContainer;

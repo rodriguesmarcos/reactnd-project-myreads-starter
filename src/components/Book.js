@@ -4,6 +4,9 @@ import BookShelfChanger from './BookShelfChanger';
 
 const Book = ({book, shelves, onChangeShelf}) => (
   <div className="book">
+
+    <input type="checkbox" name="bookId" value={book.id}/>
+
     <div className="book-top">
       <div className="book-cover" style={{
         width: 128,

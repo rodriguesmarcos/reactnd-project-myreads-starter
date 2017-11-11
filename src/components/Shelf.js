@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import BooksGrid from './BooksGrid';
 import OrderBy from './OrderBy';
 import CategoriesFilterContainer from './CategoriesFilterContainer';
+import BulkMove from './BulkMove';
 import BookCounter from './BookCounter';
 
-const Shelf = ({shelf, books, shelves, onChangeShelf, loading, orderBy, onOrderBy, categories, onChangeCategory, currCat, showing }) => (
+const Shelf = ({shelf, books, shelves, onChangeShelf, loading, orderBy, onOrderBy, categories, onChangeCategory, currCat, showing, onBulkMove }) => (
   <div className="bookshelf">
     <h2 className="bookshelf-title">
       {shelf.name}
@@ -13,17 +14,25 @@ const Shelf = ({shelf, books, shelves, onChangeShelf, loading, orderBy, onOrderB
     </h2>
     <div className="bookshelf-books">
 
-      { books.length > 0 && (<OrderBy orderBy={orderBy} onOrderBy={onOrderBy} />)}
+      { showing.length > 0 && (<OrderBy orderBy={orderBy} onOrderBy={onOrderBy} />)}
 
-      { books.length > 0 && (<CategoriesFilterContainer books={books} currCat={currCat} onChangeCategory={onChangeCategory} />)}
+      { showing.length > 0 && (<CategoriesFilterContainer books={books} currCat={currCat} onChangeCategory={onChangeCategory} />)}
 
-      <BooksGrid
-        shelf={shelf}
-        books={showing}
+      <BulkMove
+        books={books}
         shelves={shelves}
-        onChangeShelf={onChangeShelf}
-        loading={loading}
-      />
+        shelf={shelf}
+        onBulkMove={onBulkMove}
+        showing={showing}
+      >
+        <BooksGrid
+          shelf={shelf}
+          books={showing}
+          shelves={shelves}
+          onChangeShelf={onChangeShelf}
+          loading={loading}
+        />
+      </BulkMove>
     </div>
   </div>
 );
@@ -41,6 +50,7 @@ Shelf.propTypes = {
   currCat: PropTypes.string.isRequired,
   onChangeCategory: PropTypes.func.isRequired,
   showing: PropTypes.array.isRequired,
+  onBulkMove: PropTypes.func.isRequired,
 }
 
 export default Shelf;

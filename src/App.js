@@ -5,13 +5,14 @@ import './App.css'
 import MyBooks from './components/MyBooks';
 import SearchContainer from './components/SearchContainer';
 
-const BooksApp = ({shelves, books, onChangeShelf, loading}) => (
+const BooksApp = ({shelves, books, onChangeShelf, loading, onBulkMove}) => (
   <div className="app">
     <Route path="/search" render={() => (
       <SearchContainer
         shelves={shelves}
         books={books}
         onChangeShelf={onChangeShelf}
+        onBulkMove={onBulkMove}
       />
     )}/>
 
@@ -21,6 +22,7 @@ const BooksApp = ({shelves, books, onChangeShelf, loading}) => (
         books={books}
         onChangeShelf={onChangeShelf}
         loading={loading}
+        onBulkMove={onBulkMove}
       />
     )}/>
 
@@ -32,6 +34,7 @@ BooksApp.propTypes = {
   books: PropTypes.array.isRequired,
   onChangeShelf: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  onBulkMove: PropTypes.func.isRequired,
 }
 
 export default BooksApp
