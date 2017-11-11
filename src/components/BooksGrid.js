@@ -12,7 +12,7 @@ const BooksGrid = ({shelf, books, shelves, onChangeShelf, loading}) => {
   if ( books.length === 0 ) {
     return (
       <div className="message">
-        <p>{`There are no books in ${shelf.name} shelf`}</p>
+        <p>There are no books {shelf && (`in ${shelf.name} shelf`)}</p>
       </div>
     );
   }
@@ -45,7 +45,7 @@ const BooksGrid = ({shelf, books, shelves, onChangeShelf, loading}) => {
 };
 
 BooksGrid.propTypes = {
-  shelf: PropTypes.object.isRequired,
+  shelf: PropTypes.object,
   books: PropTypes.array.isRequired,
   shelves: PropTypes.arrayOf(PropTypes.object).isRequired,
   onChangeShelf: PropTypes.func.isRequired,

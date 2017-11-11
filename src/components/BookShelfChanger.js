@@ -23,8 +23,7 @@ const BookShelfChanger = ({book, shelves, onChangeShelf}) => (
 BookShelfChanger.propTypes = {
   shelves: PropTypes.array.isRequired,
   book: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    shelf: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired
   }).isRequired,
   onChangeShelf: PropTypes.func.isRequired,
 }
