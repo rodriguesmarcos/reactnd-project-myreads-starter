@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI'
 import App from './App';
+import { addCategoryToUncategorized } from './helpers';
 
 class AppContainer extends Component {
 
@@ -33,7 +34,8 @@ class AppContainer extends Component {
   async getBooks() {
     try {
       this.setState({ loading: true });
-      const books = await BooksAPI.getAll()
+      const booksResults = await BooksAPI.getAll()
+      const books = addCategoryToUncategorized(booksResults);
       this.setState({ books, loading: false });
     } catch (err) {
       console.error(err);

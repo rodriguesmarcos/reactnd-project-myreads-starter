@@ -12,7 +12,7 @@ const MyBooks = ({onShowSearchPage, shelves, books, onChangeShelf, loading}) => 
           <ShelfContainer
             key={shelf.id}
             shelf={shelf}
-            books={books}
+            books={books.filter(book => shelf.id === book.shelf)}
             shelves={shelves}
             onChangeShelf={onChangeShelf}
             loading={loading}
