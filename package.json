@@ -3,6 +3,7 @@
     "better-react-spinkit": "^2.0.2",
     "prop-types": "^15.6.0",
     "react": "^15.5.4",
+    "react-debounce-input": "^3.1.0",
     "react-dom": "^15.5.4",
     "react-transition-group": "^2.2.1",
     "sort-by": "^1.2.0"
