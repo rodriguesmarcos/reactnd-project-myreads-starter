@@ -172,3 +172,29 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
+
+
+/*
+ * Animations
+ */
+
+ .book-enter {
+   transform: scale(0);
+   transition: all .3s ease-in .3s;
+   background: red;
+ }
+.book-enter.book-enter-active {
+  transform: scale(1)!important;
+  transition: all .3s ease-in .3s;
+  background: yellow;
+}
+
+.book-exit {
+  transform: scale(1);
+  transition: all .3s ease-in;
+}
+.book-exit.book-exit-active {
+  transform: scale(0);
+  transition: all .3s ease-in;
+}
