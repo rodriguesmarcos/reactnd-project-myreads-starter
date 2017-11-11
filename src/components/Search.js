@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { DebounceInput } from 'react-debounce-input';
-import Header from './Header';
 import BooksGrid from './BooksGrid';
 import OrderBy from './OrderBy';
 import CategoriesFilterContainer from './CategoriesFilterContainer';
@@ -11,7 +10,6 @@ import BulkMove from './BulkMove';
 
 const Search = ({results, shelves, onChangeShelf, loading, orderBy, onOrderBy, categories, currCat, onChangeCategory, showing, onChangeQuery, query, onBulkMove, books }) => (
   <div>
-    <Header />
     <div className="search-books">
       <div className="search-books-bar">
         <Link

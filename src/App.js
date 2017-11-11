@@ -2,11 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import './App.css'
+import Header from './components/Header';
 import MyBooks from './components/MyBooks';
 import SearchContainer from './components/SearchContainer';
 
 const BooksApp = ({shelves, books, onChangeShelf, loading, onBulkMove}) => (
   <div className="app">
+    <Header />
+
     <Route path="/search" render={() => (
       <SearchContainer
         shelves={shelves}

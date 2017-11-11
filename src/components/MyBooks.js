@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Header from './Header';
 import ShelfContainer from './ShelfContainer';
 
 const MyBooks = ({shelves, books, onChangeShelf, loading, onBulkMove}) => (
   <div className="list-books">
-    <Header />
     <div className="list-books-content">
       <div>
         {shelves.map( shelf => (
