@@ -20,25 +20,23 @@ const BooksGrid = ({shelf, books, shelves, onChangeShelf, loading}) => {
   return (
     <TransitionGroup component="ol" className="books-grid">
       {books.map(book => (
-            <CSSTransition
-              key={book.id}
-              appear={true}
-              timeout={{
-               enter: 600,
-               exit: 300,
-              }}
-              classNames="book"
-            >
-              <li>
-                <Book
-                  book={book}
-                  shelves={shelves}
-                  onChangeShelf={onChangeShelf}
-                />
-              </li>
-            </CSSTransition>
-
-        )
+        <CSSTransition
+          key={book.id}
+          appear={true}
+          timeout={{
+           enter: 600,
+           exit: 300,
+          }}
+          classNames="book"
+        >
+          <li>
+            <Book
+              book={book}
+              shelves={shelves}
+              onChangeShelf={onChangeShelf}
+            />
+          </li>
+        </CSSTransition>)
       )}
     </TransitionGroup>
   )
