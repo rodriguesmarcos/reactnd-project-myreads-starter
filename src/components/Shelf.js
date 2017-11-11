@@ -7,7 +7,10 @@ import BookCounter from './BookCounter';
 
 const Shelf = ({shelf, books, shelves, onChangeShelf, loading, orderBy, onOrderBy, categories, onChangeCategory, currCat, showing }) => (
   <div className="bookshelf">
-    <h2 className="bookshelf-title">{shelf.name} { books.length > 0 && (<BookCounter total={books.length} showing={showing.length} />)}</h2>
+    <h2 className="bookshelf-title">
+      {shelf.name}
+      { books.length > 0 && (<BookCounter total={books.length} showing={showing.length} />)}
+    </h2>
     <div className="bookshelf-books">
 
       { books.length > 0 && (<OrderBy orderBy={orderBy} onOrderBy={onOrderBy} />)}
