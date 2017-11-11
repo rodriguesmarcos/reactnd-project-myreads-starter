@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header';
-import Shelf from './Shelf';
+import ShelfContainer from './ShelfContainer';
 
 const MyBooks = ({onShowSearchPage, shelves, books, onChangeShelf, loading}) => (
   <div className="list-books">
@@ -9,7 +9,7 @@ const MyBooks = ({onShowSearchPage, shelves, books, onChangeShelf, loading}) => 
     <div className="list-books-content">
       <div>
         {shelves.map( shelf => (
-          <Shelf
+          <ShelfContainer
             key={shelf.id}
             shelf={shelf}
             books={books}
