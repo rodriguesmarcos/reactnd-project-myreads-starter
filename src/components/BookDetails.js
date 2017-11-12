@@ -8,12 +8,11 @@ const BookDetails = ({match, getViewableBook, onChangeShelf, shelves}) => {
 
   const { bookId } = match.params;
   const book = getViewableBook(bookId);
-  const bookImage = book.imageLinks && book.imageLinks.smallThumbnail ? book.imageLinks.smallThumbnail : '';
-
-
 
   if (!book.id)
     return <FoldingCube size={75} color="#2e7c31" className="loading-spinner" />;
+
+  const bookImage = book.imageLinks && book.imageLinks.smallThumbnail ? book.imageLinks.smallThumbnail : '';    
 
   return (
     <div className="book-details">
