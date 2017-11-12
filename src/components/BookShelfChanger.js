@@ -7,7 +7,8 @@ const BookShelfChanger = ({book, shelves, onChangeShelf, history}) => (
     onChange={(e) => {
       const shelf = e.target.value;
       onChangeShelf(book, shelf);
-      history.push("/");
+      if ( history )
+        history.push("/");      
     }}
   >
     <option value="none" disabled>Move to...</option>
