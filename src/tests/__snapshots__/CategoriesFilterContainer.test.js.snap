@@ -1,0 +1,33 @@
+exports[`<CategoriesFilterContainer /> renders without exploding 1`] = `
+<CategoriesFilter
+  categories={
+    Array [
+      Object {
+        "id": "COMPUTERS",
+        "name": "COMPUTERS",
+      },
+      Object {
+        "id": undefined,
+        "name": undefined,
+      },
+      Object {
+        "id": "Business & Economics",
+        "name": "Business & Economics",
+      },
+      Object {
+        "id": "Computers",
+        "name": "Computers",
+      },
+      Object {
+        "id": "Fiction",
+        "name": "Fiction",
+      },
+      Object {
+        "id": "Performing Arts",
+        "name": "Performing Arts",
+      },
+    ]
+  }
+  currCat=""
+  onChangeCategory={[Function]} />
+`;
