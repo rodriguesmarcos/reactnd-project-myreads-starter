@@ -1,0 +1,22 @@
+exports[`<OrderBy /> renders without exploding 1`] = `
+<div>
+  Order by
+  <select
+    defaultValue="orderBy"
+    name="orderBy"
+    onChange={[Function]}>
+    <option
+      value="title">
+      Title
+    </option>
+    <option
+      value="pageCount">
+      Page Count
+    </option>
+    <option
+      value="publishedDate">
+      Published Date
+    </option>
+  </select>
+</div>
+`;
