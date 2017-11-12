@@ -21,30 +21,33 @@ const Search = ({results, shelves, onChangeShelf, loading, orderBy, onOrderBy, c
 
         </div>
       </div>
-      <div className="search-books-results">
 
+      <div className="search-wrapper">
         <h2 className="search-title">
           Search Results
           { results.length > 0 && (<BookCounter total={results.length} showing={showing.length} />)}
         </h2>
 
-        { results.length > 0 && (<OrderBy orderBy={orderBy} onOrderBy={onOrderBy} />)}
+        <div className="search-books-results">
 
-        { results.length > 0 && (<CategoriesFilterContainer books={results} currCat={currCat} onChangeCategory={onChangeCategory} />)}
+          { results.length > 0 && (<OrderBy orderBy={orderBy} onOrderBy={onOrderBy} />)}
 
-        <BulkMove
-          shelves={shelves}
-          onBulkMove={onBulkMove}
-          books={books}
-          showing={showing}
-        >
-          <BooksGrid
-            books={showing}
+          { results.length > 0 && (<CategoriesFilterContainer books={results} currCat={currCat} onChangeCategory={onChangeCategory} />)}
+
+          <BulkMove
             shelves={shelves}
-            onChangeShelf={onChangeShelf}
-            loading={loading}
-          />
-        </BulkMove>
+            onBulkMove={onBulkMove}
+            books={books}
+            showing={showing}
+          >
+            <BooksGrid
+              books={showing}
+              shelves={shelves}
+              onChangeShelf={onChangeShelf}
+              loading={loading}
+            />
+          </BulkMove>
+        </div>
       </div>
     </div>
   </div>

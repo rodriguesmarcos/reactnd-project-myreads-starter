@@ -8,6 +8,7 @@ body {
 }
 body, .app {
   background: white;
+  background: #eaedf1;
 }
 
 /* main page */
@@ -43,7 +44,12 @@ body, .app {
   }
 }
 
-.bookshelf-title {
+.search-wrapper {
+  margin: 0 20px;
+}
+
+.bookshelf-title,
+.search-title {
   border-bottom: 1px solid #dedede;
 }
 .bookshelf-books {
@@ -117,7 +123,7 @@ body, .app {
 
 .books-grid {
   list-style-type: none;
-  padding: 0;
+  padding: 20px 0 0;
   margin: 0;
 
   display: flex;
@@ -125,13 +131,14 @@ body, .app {
   flex-wrap: wrap;
 }
 .books-grid li {
-  padding: 10px 15px;
+  padding: 20px 15px;
   text-align: left;
 }
 
 .book {
   width: 140px;
   position: relative;
+  padding: 6px;
 }
 .book-link {
   display: block;
@@ -139,6 +146,7 @@ body, .app {
 }
 .book-title,
 .book-authors {
+  padding: 0 6px;
   font-size: 0.8em;
 }
 .book-title {
@@ -173,8 +181,8 @@ body, .app {
 
 .book .book-shelf-changer {
   bottom: auto;
-  top: 190px;
-  right: -8px;
+  top: 170px;
+  right: -18px;
 }
 
 .book-shelf-changer select {
@@ -232,15 +240,13 @@ body, .app {
  * Animations
  */
 
- .book-enter {
-   transform: scale(0);
-   transition: all .3s ease-in .3s;
-   background: red;
- }
+.book-enter {
+ transform: scale(0);
+ transition: all .3s ease-in .3s;
+}
 .book-enter.book-enter-active {
   transform: scale(1)!important;
   transition: all .3s ease-in .3s;
-  background: yellow;
 }
 
 .book-exit {
@@ -303,4 +309,144 @@ body, .app {
   height: 100%;
   top: 0;
   left: 0;
+}
+
+
+
+.book {
+  position: relative;
+  background: #fff;
+  height: 100%;
+  width: 165px;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 6px,
+              rgba(0, 0, 0, 0.12) 0px 2px 4px;
+  transition: .3s all ease-in;
+}
+.book::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+}
+
+.book-link {
+  display: flex;
+  flex-flow: column;
+}
+
+.book-cover {
+  width: 165px;
+  height: 210px;
+  box-shadow: none;
+  background-size: cover;
+}
+
+.book-header {
+  margin-top: auto;
+  padding: 0px 10px 10px;
+}
+
+
+.book-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+/* book checkbox */
+.check {
+  position: absolute;
+  z-index: 20;
+  opacity: 0;
+}
+.check,
+.check-label {
+  left: 10px;
+  top: 0px;
+  transition: .3s all ease-in;
+
+}
+.check-label {
+  position: absolute;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+  font-size: 0;
+}
+.check-label::before {
+  content: '';
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #000;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 5px 12px,
+              rgba(0, 0, 0, 0.12) 0px 5px 10px;
+}
+.check:checked + .check-label {
+  top: 10px;
+  left: 15px;
+}
+.check:checked + .check-label::before {
+  background: #2e7c31;
+  border-color: #2e7c31;
+}
+.check:checked + .check-label::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 3px;
+  display: block;
+  width: 8px;
+  height: 14px;
+  border-right: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+  z-index: 30;
+  transform: rotate(45deg);
+}
+.check:checked + .check-label + .book {
+  background: #fff;
+  /*transform: translateY(-10px);*/
+  transform: scale(.95);
+  transition: .3s all ease-in;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 5px 12px,
+              rgba(0, 0, 0, 0.12) 0px 5px 10px;
+}
+.check:checked + .check-label + .book::before {
+  border-color: #02acac;
+}
+
+.search-books-results,
+.bookshelf-books {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.search-books-results > div,
+.search-books-results > form > div,
+.bookshelf-books > div,
+.bookshelf-books > form > div {
+  text-align: left;
+}
+.search-books-results > form,
+.bookshelf-books > form  {
+  width: 100%;
+}
+
+@media( min-width: 768px ) {
+  .search-books-results,
+  .bookshelf-books {
+    position: relative;
+  }
+  .search-books-results > form > div,
+  .bookshelf-books > form > div {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+  }
 }
