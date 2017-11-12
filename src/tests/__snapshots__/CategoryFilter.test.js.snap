@@ -1,0 +1,39 @@
+exports[`<CategoriesFilter /> renders without exploding 1`] = `
+<div>
+  Filter by
+  <select
+    defaultValue=""
+    name="categoriesFilter"
+    onChange={[Function]}>
+    <option
+      value="">
+      All
+    </option>
+    <option
+      key="computer"
+      value="computer">
+      Computer
+    </option>
+  </select>
+</div>
+`;
+
+exports[`<CategoriesFilter /> should call onChangeCategory 1`] = `
+<div>
+  Filter by
+  <select
+    defaultValue=""
+    name="categoriesFilter"
+    onChange={[Function]}>
+    <option
+      value="">
+      All
+    </option>
+    <option
+      key="computer"
+      value="computer">
+      Computer
+    </option>
+  </select>
+</div>
+`;
