@@ -444,9 +444,10 @@ body, .app {
   }
   .search-books-results > form > div,
   .bookshelf-books > form > div {
-    width: 100%;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 0;
+    top: -25px;
+    display: inline-block;
+    margin: 0 auto;
   }
 }
