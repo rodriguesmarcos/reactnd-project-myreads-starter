@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import serializeForm from 'form-serialize';
 
-const BulkMove = ({children, bar, onBulkMove, shelves, books, showing, shelf = 'none'}) => {
+const BulkMove = ({children, bar, onBulkMove, shelves, books, showing = [], shelf = 'none'}) => {
 
   const onSubmit = handleMoveBooks;
   const select = renderBulkMoveSelect(shelves, shelf, onBulkMove);
@@ -59,15 +59,17 @@ const renderBulkMoveSelect = (shelves, shelf, onBulkMove) => {
 const handleMoveBooks = (e, onBulkMove, books) => {
   e.preventDefault();
   const values = serializeForm( e.target, { 'hash': true } );
-  const { bookId:booksIds, shelf } = values;
+  const { bookId:booksIds = [], shelf } = values;
   const changeBooks = books.filter( b => booksIds.includes(b.id)).filter( b => shelf !== b.shelf);
 
   onBulkMove( changeBooks, shelf );
 }
 
 BulkMove.propTypes = {
-  bar: PropTypes.func,
   books: PropTypes.array.isRequired,
+  shelves: PropTypes.array.isRequired,
+  showing: PropTypes.array.isRequired,
+  onBulkMove: PropTypes.func.isRequired,
 }
 
 export default BulkMove;
