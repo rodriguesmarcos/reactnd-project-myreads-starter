@@ -12,7 +12,7 @@ const BooksGrid = ({shelf, books, shelves, onChangeShelf, loading}) => {
   if ( books.length === 0 ) {
     return (
       <div className="message">
-        <p>There are no books {shelf && (`in ${shelf.name} shelf`)}</p>
+        <p>There are no books{shelf && (` in ${shelf.name} shelf`)}</p>
       </div>
     );
   }
