@@ -1,0 +1,119 @@
+exports[`<Book /> renders without exploding 1`] = `
+<div
+  className="book">
+  <input
+    name="bookId"
+    type="checkbox"
+    value="nggnmAEACAAJ" />
+  <Link
+    className="book-link"
+    replace={false}
+    to="/book/nggnmAEACAAJ">
+    <div
+      className="book-top">
+      <div
+        className="book-cover"
+        style={
+          Object {
+            "backgroundImage": "url(http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api)",
+            "height": 193,
+            "width": 128,
+          }
+        } />
+    </div>
+    <div
+      className="book-title">
+      The Linux Command Line
+    </div>
+    <div
+      className="book-authors">
+      William E. Shotts, Jr.
+    </div>
+  </Link>
+  <div
+    className="book-shelf-changer">
+    <Route
+      render={[Function]} />
+  </div>
+</div>
+`;
+
+exports[`<Book /> should have a Link to BookDetails 1`] = `
+<div
+  className="book">
+  <input
+    name="bookId"
+    type="checkbox"
+    value="nggnmAEACAAJ" />
+  <Link
+    className="book-link"
+    replace={false}
+    to="/book/nggnmAEACAAJ">
+    <div
+      className="book-top">
+      <div
+        className="book-cover"
+        style={
+          Object {
+            "backgroundImage": "url(http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api)",
+            "height": 193,
+            "width": 128,
+          }
+        } />
+    </div>
+    <div
+      className="book-title">
+      The Linux Command Line
+    </div>
+    <div
+      className="book-authors">
+      William E. Shotts, Jr.
+    </div>
+  </Link>
+  <div
+    className="book-shelf-changer">
+    <Route
+      render={[Function]} />
+  </div>
+</div>
+`;
+
+exports[`<Book /> should have a checkbox 1`] = `
+<div
+  className="book">
+  <input
+    name="bookId"
+    type="checkbox"
+    value="nggnmAEACAAJ" />
+  <Link
+    className="book-link"
+    replace={false}
+    to="/book/nggnmAEACAAJ">
+    <div
+      className="book-top">
+      <div
+        className="book-cover"
+        style={
+          Object {
+            "backgroundImage": "url(http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api)",
+            "height": 193,
+            "width": 128,
+          }
+        } />
+    </div>
+    <div
+      className="book-title">
+      The Linux Command Line
+    </div>
+    <div
+      className="book-authors">
+      William E. Shotts, Jr.
+    </div>
+  </Link>
+  <div
+    className="book-shelf-changer">
+    <Route
+      render={[Function]} />
+  </div>
+</div>
+`;

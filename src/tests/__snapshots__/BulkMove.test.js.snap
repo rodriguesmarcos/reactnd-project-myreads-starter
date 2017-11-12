@@ -1,0 +1,85 @@
+exports[`<BulkMove /> renders without exploding 1`] = `<div />`;
+
+exports[`<BulkMove /> should call onBulkMove 1`] = `
+<form
+  onSubmit={[Function]}>
+  <div>
+    Move Books: 
+    <select
+      defaultValue=""
+      name="shelf"
+      onSubmit={[Function]}>
+      <option
+        disabled={true}
+        value="">
+        Choose a shelf
+      </option>
+      <option
+        key="currentlyReading"
+        value="currentlyReading">
+        Currently Reading
+      </option>
+      <option
+        key="wantToRead"
+        value="wantToRead">
+        Want to Read
+      </option>
+      <option
+        key="read"
+        value="read">
+        Read
+      </option>
+    </select>
+    <button
+      type="submit">
+      Move
+    </button>
+  </div>
+  <div
+    isMovable={true}
+    key=".0" />
+</form>
+`;
+
+exports[`<BulkMove /> should render children 1`] = `<div />`;
+
+exports[`<BulkMove /> should render children 2`] = `
+<form
+  onSubmit={[Function]}>
+  <div>
+    Move Books: 
+    <select
+      defaultValue=""
+      name="shelf"
+      onSubmit={[Function]}>
+      <option
+        disabled={true}
+        value="">
+        Choose a shelf
+      </option>
+      <option
+        key="currentlyReading"
+        value="currentlyReading">
+        Currently Reading
+      </option>
+      <option
+        key="wantToRead"
+        value="wantToRead">
+        Want to Read
+      </option>
+      <option
+        key="read"
+        value="read">
+        Read
+      </option>
+    </select>
+    <button
+      type="submit">
+      Move
+    </button>
+  </div>
+  <div
+    isMovable={true}
+    key=".0" />
+</form>
+`;

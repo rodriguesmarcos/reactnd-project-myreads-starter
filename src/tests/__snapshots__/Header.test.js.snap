@@ -1,0 +1,23 @@
+exports[`<Header /> renders back button 1`] = `
+<div
+  className="header list-books-title">
+  <Link
+    className="close-search"
+    replace={false}
+    to="/">
+    Close
+  </Link>
+  <h1>
+    MyReads
+  </h1>
+</div>
+`;
+
+exports[`<Header /> renders without exploding 1`] = `
+<div
+  className="header list-books-title">
+  <h1>
+    MyReads
+  </h1>
+</div>
+`;

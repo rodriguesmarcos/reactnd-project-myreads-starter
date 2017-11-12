@@ -1,0 +1,71 @@
+exports[`<BookDetails /> renders without exploding 1`] = `
+<div
+  className="book-details">
+  <div
+    className="book-details-cover">
+    <div
+      className="book-top">
+      <div
+        className="book-cover"
+        style={
+          Object {
+            "backgroundImage": "url(http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api)",
+            "height": 193,
+            "width": 128,
+          }
+        } />
+      <div
+        className="book-shelf-changer">
+        <Route
+          render={[Function]} />
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="book-details-header">
+      <h2
+        className="book-details-title">
+        The Linux Command Line
+      </h2>
+      <h3
+        className="book-details-subtitle">
+        A Complete Introduction
+      </h3>
+      <div
+        className="book-details-authors">
+        William E. Shotts, Jr.
+      </div>
+    </div>
+    <div
+      className="book-details-content">
+      You\'ve experienced the shiny, point-and-click surface of your Linux computer—now dive below and explore its depths with the power of the command line. The Linux Command Line takes you from your very first terminal keystrokes to writing full programs in Bash, the most popular Linux shell. Along the way you\'ll learn the timeless skills handed down by generations of gray-bearded, mouse-shunning gurus: file navigation, environment configuration, command chaining, pattern matching with regular expressions, and more. In addition to that practical knowledge, author William Shotts reveals the philosophy behind these tools and the rich heritage that your desktop Linux machine has inherited from Unix supercomputers of yore. As you make your way through the book\'s short, easily-digestible chapters, you\'ll learn how to: * Create and delete files, directories, and symlinks * Administer your system, including networking, package installation, and process management * Use standard input and output, redirection, and pipelines * Edit files with Vi, the world’s most popular text editor * Write shell scripts to automate common or boring tasks * Slice and dice text files with cut, paste, grep, patch, and sed Once you overcome your initial \"shell shock,\" you\'ll find that the command line is a natural and expressive way to communicate with your computer. Just don\'t be surprised if your mouse starts to gather dust. A featured resource in the Linux Foundation\'s \"Evolution of a SysAdmin\"
+    </div>
+    <div
+      className="book-details-footer">
+      <h4
+        className="book-details-more">
+        More Details
+      </h4>
+      <ul>
+        <li>
+          Pages: 
+          480
+        </li>
+        <li>
+          Language: 
+          en
+        </li>
+        <li>
+          Published Date: 
+          2012
+        </li>
+        <li>
+          Publisher: 
+          No Starch Press
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

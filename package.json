@@ -1,11 +1,22 @@
 {
   "dependencies": {
-    "prop-types": "^15.5.8",
+    "better-react-spinkit": "^2.0.2",
+    "form-serialize": "^0.7.2",
+    "prop-types": "^15.6.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-debounce-input": "^3.1.0",
+    "react-dom": "^15.5.4",
+    "react-router-dom": "^4.2.2",
+    "react-transition-group": "^2.2.1",
+    "sort-by": "^1.2.0"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "enzyme": "^3.1.1",
+    "enzyme-adapter-react-15": "^1.0.5",
+    "enzyme-to-json": "^3.2.2",
+    "jest-localstorage-mock": "^2.1.0",
+    "react-scripts": "0.9.5",
+    "react-test-renderer": "^15.6.2"
   },
   "scripts": {
     "start": "react-scripts start",

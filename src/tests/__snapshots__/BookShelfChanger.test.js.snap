@@ -1,0 +1,92 @@
+exports[`<BookShelfChanger /> renders without exploding 1`] = `
+<select
+  defaultValue="currentlyReading"
+  onChange={[Function]}>
+  <option
+    disabled={true}
+    value="none">
+    Move to...
+  </option>
+  <option
+    key="currentlyReading"
+    value="currentlyReading">
+    Currently Reading
+  </option>
+  <option
+    key="wantToRead"
+    value="wantToRead">
+    Want to Read
+  </option>
+  <option
+    key="read"
+    value="read">
+    Read
+  </option>
+  <option
+    value="none">
+    None
+  </option>
+</select>
+`;
+
+exports[`<BookShelfChanger /> should call onChangeShelf 1`] = `
+<select
+  defaultValue="currentlyReading"
+  onChange={[Function]}>
+  <option
+    disabled={true}
+    value="none">
+    Move to...
+  </option>
+  <option
+    key="currentlyReading"
+    value="currentlyReading">
+    Currently Reading
+  </option>
+  <option
+    key="wantToRead"
+    value="wantToRead">
+    Want to Read
+  </option>
+  <option
+    key="read"
+    value="read">
+    Read
+  </option>
+  <option
+    value="none">
+    None
+  </option>
+</select>
+`;
+
+exports[`<BookShelfChanger /> should render Loading spinner 1`] = `
+<select
+  defaultValue="currentlyReading"
+  onChange={[Function]}>
+  <option
+    disabled={true}
+    value="none">
+    Move to...
+  </option>
+  <option
+    key="currentlyReading"
+    value="currentlyReading">
+    Currently Reading
+  </option>
+  <option
+    key="wantToRead"
+    value="wantToRead">
+    Want to Read
+  </option>
+  <option
+    key="read"
+    value="read">
+    Read
+  </option>
+  <option
+    value="none">
+    None
+  </option>
+</select>
+`;
