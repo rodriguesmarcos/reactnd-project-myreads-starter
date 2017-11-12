@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import { addCategoryToUncategorized } from '../helpers';
 import ShelfContainer from '../components/ShelfContainer.js';
 import books from './fixtures/books';
 import shelves from './fixtures/shelves';
@@ -10,7 +11,7 @@ describe('<ShelfContainer />', () => {
   const minProps = {
     shelf: shelves[0],
     shelves: shelves,
-    books: books,
+    books: addCategoryToUncategorized(books),
     onChangeShelf: () => {},
     loading: false,
     onBulkMove: () => {},
@@ -31,5 +32,12 @@ describe('<ShelfContainer />', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
+  test('should set current category', () => {
+    const value = "computer";
+    const wrapper = shallow(<ShelfContainer {...minProps}/>);
+    expect(wrapper.state('currCat')).toBe('');
+    wrapper.find('Shelf').prop('onChangeCategory')(value);
+    expect(wrapper.state('currCat')).toBe(value);
+  });
 
 });
