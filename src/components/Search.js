@@ -37,7 +37,7 @@ const Search = ({results, shelves, onChangeShelf, loading, orderBy, onOrderBy, c
           <BulkMove
             shelves={shelves}
             onBulkMove={onBulkMove}
-            books={books}
+            books={results}
             showing={showing}
           >
             <BooksGrid
