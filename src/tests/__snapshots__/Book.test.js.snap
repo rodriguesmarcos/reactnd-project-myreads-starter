@@ -1,119 +1,152 @@
 exports[`<Book /> renders without exploding 1`] = `
 <div
-  className="book">
+  className="book-wrapper">
   <input
+    className="check"
+    id="check-nggnmAEACAAJ"
     name="bookId"
     type="checkbox"
     value="nggnmAEACAAJ" />
-  <Link
-    className="book-link"
-    replace={false}
-    to="/book/nggnmAEACAAJ">
-    <div
-      className="book-top">
-      <div
-        className="book-cover"
-        style={
-          Object {
-            "backgroundImage": "url(http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api)",
-            "height": 193,
-            "width": 128,
-          }
-        } />
-    </div>
-    <div
-      className="book-title">
-      The Linux Command Line
-    </div>
-    <div
-      className="book-authors">
-      William E. Shotts, Jr.
-    </div>
-  </Link>
+  <label
+    className="check-label"
+    htmlFor="check-nggnmAEACAAJ">
+    Select
+  </label>
   <div
-    className="book-shelf-changer">
-    <Route
-      render={[Function]} />
+    className="book">
+    <Link
+      className="book-link"
+      replace={false}
+      to="/book/nggnmAEACAAJ">
+      <div
+        className="book-top">
+        <div
+          className="book-cover"
+          style={
+            Object {
+              "backgroundImage": "url(http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api)",
+            }
+          } />
+      </div>
+      <div
+        className="book-header">
+        <div
+          className="book-title">
+          The Linux Command Line
+        </div>
+        <div
+          className="book-authors">
+          William E. Shotts, Jr.
+        </div>
+      </div>
+    </Link>
+    <div
+      className="book-shelf-changer">
+      <Route
+        render={[Function]} />
+    </div>
   </div>
 </div>
 `;
 
 exports[`<Book /> should have a Link to BookDetails 1`] = `
 <div
-  className="book">
+  className="book-wrapper">
   <input
+    className="check"
+    id="check-nggnmAEACAAJ"
     name="bookId"
     type="checkbox"
     value="nggnmAEACAAJ" />
-  <Link
-    className="book-link"
-    replace={false}
-    to="/book/nggnmAEACAAJ">
-    <div
-      className="book-top">
-      <div
-        className="book-cover"
-        style={
-          Object {
-            "backgroundImage": "url(http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api)",
-            "height": 193,
-            "width": 128,
-          }
-        } />
-    </div>
-    <div
-      className="book-title">
-      The Linux Command Line
-    </div>
-    <div
-      className="book-authors">
-      William E. Shotts, Jr.
-    </div>
-  </Link>
+  <label
+    className="check-label"
+    htmlFor="check-nggnmAEACAAJ">
+    Select
+  </label>
   <div
-    className="book-shelf-changer">
-    <Route
-      render={[Function]} />
+    className="book">
+    <Link
+      className="book-link"
+      replace={false}
+      to="/book/nggnmAEACAAJ">
+      <div
+        className="book-top">
+        <div
+          className="book-cover"
+          style={
+            Object {
+              "backgroundImage": "url(http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api)",
+            }
+          } />
+      </div>
+      <div
+        className="book-header">
+        <div
+          className="book-title">
+          The Linux Command Line
+        </div>
+        <div
+          className="book-authors">
+          William E. Shotts, Jr.
+        </div>
+      </div>
+    </Link>
+    <div
+      className="book-shelf-changer">
+      <Route
+        render={[Function]} />
+    </div>
   </div>
 </div>
 `;
 
 exports[`<Book /> should have a checkbox 1`] = `
 <div
-  className="book">
+  className="book-wrapper">
   <input
+    className="check"
+    id="check-nggnmAEACAAJ"
     name="bookId"
     type="checkbox"
     value="nggnmAEACAAJ" />
-  <Link
-    className="book-link"
-    replace={false}
-    to="/book/nggnmAEACAAJ">
-    <div
-      className="book-top">
-      <div
-        className="book-cover"
-        style={
-          Object {
-            "backgroundImage": "url(http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api)",
-            "height": 193,
-            "width": 128,
-          }
-        } />
-    </div>
-    <div
-      className="book-title">
-      The Linux Command Line
-    </div>
-    <div
-      className="book-authors">
-      William E. Shotts, Jr.
-    </div>
-  </Link>
+  <label
+    className="check-label"
+    htmlFor="check-nggnmAEACAAJ">
+    Select
+  </label>
   <div
-    className="book-shelf-changer">
-    <Route
-      render={[Function]} />
+    className="book">
+    <Link
+      className="book-link"
+      replace={false}
+      to="/book/nggnmAEACAAJ">
+      <div
+        className="book-top">
+        <div
+          className="book-cover"
+          style={
+            Object {
+              "backgroundImage": "url(http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api)",
+            }
+          } />
+      </div>
+      <div
+        className="book-header">
+        <div
+          className="book-title">
+          The Linux Command Line
+        </div>
+        <div
+          className="book-authors">
+          William E. Shotts, Jr.
+        </div>
+      </div>
+    </Link>
+    <div
+      className="book-shelf-changer">
+      <Route
+        render={[Function]} />
+    </div>
   </div>
 </div>
 `;
